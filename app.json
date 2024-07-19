@@ -17,9 +17,7 @@
       "fallbackToCacheTimeout": 0
     },
     "jsEngine": "hermes",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "android": {
       "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.voiceinteractionapp",
@@ -42,6 +40,9 @@
         "tabletImage": "./assets/images/splash-logo-ios-tablet.png",
         "resizeMode": "contain",
         "backgroundColor": "#191015"
+      },
+      "infoPlist": {
+        "UIBackgroundModes": ["voip"]
       }
     },
     "web": {
@@ -66,7 +67,20 @@
           }
         }
       ],
-      "expo-font"
+      "expo-font",
+      "@config-plugins/react-native-webrtc",
+      "@daily-co/config-plugin-rn-daily-js",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24
+          },
+          "ios": {
+            "deploymentTarget": "13.4"
+          }
+        }
+      ]
     ],
     "experiments": {
       "tsconfigPaths": true
